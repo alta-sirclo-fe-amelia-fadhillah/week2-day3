@@ -1,15 +1,27 @@
+const boba=5000;
+const seblak=8000;
 function jajanBoba(uang,callback){
+    console.log("kamu jajan boba dengan harga "+boba)
     setTimeout(()=>{
-        callback(uang=uang-5000)}
-        ,5000)
+        if(uang<boba){
+            console.log("maaf uang kamu belum cukup untuk membeli boba\nsisa uang kamu "+uang)
+        }else{
+            uang=uang-boba;
+            console.log("sisa uang kamu "+uang)
+            console.log("kamu jajan seblak dengan harga "+seblak)
+        }
+    },5000)
     setTimeout(()=>{
-        console.log("kamu jajan seblak dengan harga 8000")}
-        ,6000)
-    setTimeout(()=>{
-        callback(uang=uang-8000)}
-        ,9000)
-    console.log("kamu jajan boba dengan harga 5000")
+        if(uang<seblak){
+            console.log("maaf uang kamu belum cukup untuk membeli seblak\nsisa uang kamu "+uang)
+        }else{
+            callback(uang=uang-seblak)
+        }}
+        ,9000);
+    
 }
 function jajanSeblak(uang){
     console.log("sisa uang kamu "+uang)
 }
+
+jajanBoba(2000,jajanSeblak);
